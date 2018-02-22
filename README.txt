@@ -1,5 +1,12 @@
 AI concepts with Python and Malmo
 
+Prior knowledge assumed: primitive data types, list, function, concept of
+object, loop, conditionals, string manipulation
+
+Should not require: OOP
+
+Duration: 5 sessions, each 2 hours
+
 Session 1
   Concept of an agent
     sense the environment
