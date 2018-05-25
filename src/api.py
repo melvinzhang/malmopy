@@ -11,6 +11,7 @@ def init():
         sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)  # flush print output immediately
     else:
         import functools
+        global print
         print = functools.partial(print, flush=True)
     
     if 'MALMO_XSD_PATH' not in os.environ:
