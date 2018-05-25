@@ -78,28 +78,29 @@ def wait_for_mission_end(agent_host):
         for error in world_state.errors:
             print("Error:",error.text)
 
-init()
-ah = create_agent_host()
-spec = MalmoPython.MissionSpec()
-#with open('default.xml', 'r') as mfile:
-#    spec = MalmoPython.MissionSpec(mfile.read(), True)
-spec.setTimeOfDay(12000, False)
-spec.startAtWithPitchAndYaw(0.5, 227, 0.5, 0, 90)
-spec.drawSphere(-15, 227, 0, 10, 'air')
-spec.removeAllCommandHandlers()
-spec.allowAllDiscreteMovementCommands()
-print(spec.getAsXML(True))
-chs = list(spec.getListOfCommandHandlers(0))
-for ch in chs:
-    cmds = list(spec.getAllowedCommands(0, ch))
-    print(ch, cmds)
-record = MalmoPython.MissionRecordSpec()
-start_mission(ah, spec, record)
-wait_for_mission_start(ah)
-for i in range(10):
-    time.sleep(1)
-    cmd = 'move 1'
-    ah.sendCommand(cmd)
-    print(cmd)
-wait_for_mission_end(ah)
+if __name__ == "__main__":
+    init()
+    ah = create_agent_host()
+    spec = MalmoPython.MissionSpec()
+    # with open('default.xml', 'r') as mfile:
+    #     spec = MalmoPython.MissionSpec(mfile.read(), True)
+    spec.setTimeOfDay(12000, False)
+    spec.startAtWithPitchAndYaw(0.5, 227, 0.5, 0, 90)
+    spec.drawSphere(-15, 227, 0, 10, 'air')
+    spec.removeAllCommandHandlers()
+    spec.allowAllDiscreteMovementCommands()
+    print(spec.getAsXML(True))
+    chs = list(spec.getListOfCommandHandlers(0))
+    for ch in chs:
+        cmds = list(spec.getAllowedCommands(0, ch))
+        print(ch, cmds)
+    record = MalmoPython.MissionRecordSpec()
+    start_mission(ah, spec, record)
+    wait_for_mission_start(ah)
+    for i in range(10):
+        time.sleep(1)
+        cmd = 'move 1'
+        ah.sendCommand(cmd)
+        print(cmd)
+    wait_for_mission_end(ah)
 
