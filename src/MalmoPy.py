@@ -6,6 +6,37 @@ import os
 import sys
 import time
 
+class Malmo():
+    def __init__(self):
+        init()
+        self.ah = create_agent_host()
+        self.spec = MissionSpec()
+        self.record = MissionRecordSpec()
+
+    def setup_mission(self, fun):
+        spec = self.spec
+        fun(spec)
+        print(spec.getAsXML(True))
+        chs = list(spec.getListOfCommandHandlers(0))
+        for ch in chs:
+            cmds = list(spec.getAllowedCommands(0, ch))
+            print(ch, cmds)
+
+    def start_mission(self):
+        start_mission(self.ah, self.spec, self.record)
+
+    def wait_for_mission_start(self):
+        wait_for_mission_start(self.ah)
+
+    def wait_for_mission_end(self):
+        wait_for_mission_end(self.ah)
+
+    def send_command(self, command):
+        self.ah.sendCommand(command)
+
+    def move(self, n):
+        self.send_command("move " + str(n))
+
 def init():
     if sys.version_info[0] == 2:
         sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)  # flush print output immediately

@@ -1,10 +1,7 @@
 import MalmoPy
 import time
 
-if __name__ == "__main__":
-    MalmoPy.init()
-    ah = MalmoPy.create_agent_host()
-    spec = MalmoPy.MissionSpec()
+def setup_mission(spec):
     # with open('default.xml', 'r') as mfile:
     #     spec = MalmoPython.MissionSpec(mfile.read(), True)
     spec.setTimeOfDay(12000, False)
@@ -12,18 +9,17 @@ if __name__ == "__main__":
     spec.drawSphere(-15, 227, 0, 10, 'air')
     spec.removeAllCommandHandlers()
     spec.allowAllDiscreteMovementCommands()
-    print(spec.getAsXML(True))
-    chs = list(spec.getListOfCommandHandlers(0))
-    for ch in chs:
-        cmds = list(spec.getAllowedCommands(0, ch))
-        print(ch, cmds)
-    record = MalmoPy.MissionRecordSpec()
-    MalmoPy.start_mission(ah, spec, record)
-    MalmoPy.wait_for_mission_start(ah)
+
+if __name__ == "__main__":
+    malmo = MalmoPy.Malmo()
+    malmo.setup_mission(setup_mission)
+    malmo.start_mission()
+    malmo.wait_for_mission_start()
+    print("mission start")
     for i in range(10):
         time.sleep(1)
-        cmd = 'move 1'
-        ah.sendCommand(cmd)
-        print(cmd)
-    MalmoPy.wait_for_mission_end(ah)
+        malmo.move(1)
+        print("move 1")
+    malmo.wait_for_mission_end()
+    print("mission end")
 
