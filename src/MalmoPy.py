@@ -24,8 +24,6 @@ class Malmo():
 
     def start_mission(self):
         start_mission(self.ah, self.spec, self.record)
-
-    def wait_for_mission_start(self):
         wait_for_mission_start(self.ah)
 
     def wait_for_mission_end(self):
@@ -35,7 +33,16 @@ class Malmo():
         self.ah.sendCommand(command)
 
     def move(self, n):
+        ws = self.ah.peekWorldState()
         self.send_command("move " + str(n))
+        self._wait_for_update()
+
+    def _wait_for_update(self):
+        while True:
+            time.sleep(0.001)
+            ws = self.ah.peekWorldState()
+            if ws.number_of_observations_since_last_state > 0 or not ws.is_mission_running:
+                break
 
 def init():
     if sys.version_info[0] == 2:

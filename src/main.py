@@ -14,10 +14,7 @@ if __name__ == "__main__":
     malmo = MalmoPy.Malmo()
     malmo.setup_mission(setup_mission)
     malmo.start_mission()
-    malmo.wait_for_mission_start()
-    print("mission start")
     for i in range(10):
-        time.sleep(1)
         malmo.move(1)
         print("move 1")
     malmo.wait_for_mission_end()
