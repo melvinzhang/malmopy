@@ -118,8 +118,7 @@ def wait_for_mission_start(agent_host):
         world_state = agent_host.getWorldState()
         for error in world_state.errors:
             print("Error:",error.text)
-    print()
-    print("Mission running ", end=' ')
+    print(" started")
 
 # Loop until mission ends:
 def wait_for_mission_end(agent_host):
