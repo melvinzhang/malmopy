@@ -17,13 +17,17 @@ class Malmo():
         self.record = MissionRecordSpec()
 
     def setup_mission(self, fun):
-        spec = self.spec
-        fun(spec)
-        print(spec.getAsXML(True))
-        chs = list(spec.getListOfCommandHandlers(0))
-        for ch in chs:
-            cmds = list(spec.getAllowedCommands(0, ch))
-            print(ch, cmds)
+        if isinstance(fun, str):
+            with open(fun, 'r') as mfile:
+                self.spec = MalmoPython.MissionSpec(mfile.read(), True)
+        else:
+            fun(self.spec)
+
+        #print(spec.getAsXML(True))
+        #chs = list(spec.getListOfCommandHandlers(0))
+        #for ch in chs:
+        #    cmds = list(spec.getAllowedCommands(0, ch))
+        #    print(ch, cmds)
 
     def start_mission(self):
         start_mission(self.ah, self.spec, self.record)
