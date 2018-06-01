@@ -1,10 +1,13 @@
 from __future__ import print_function
 
 from builtins import range
-import MalmoPython
 import os
 import sys
 import time
+
+# set env var needed by native library
+os.environ["MALMO_XSD_PATH"] = os.getcwd() + "/schemas"
+import MalmoPython
 
 class Malmo():
     def __init__(self):
