@@ -4,6 +4,7 @@ from builtins import range
 import os
 import sys
 import time
+import json
 
 # set env var needed by native library
 os.environ["MALMO_XSD_PATH"] = os.getcwd() + "/schemas"
@@ -43,6 +44,13 @@ class Malmo():
         ws = self.ah.peekWorldState()
         self.send_command("move " + str(n))
         self._wait_for_update()
+
+    def observe(self):
+        ws = self.ah.getWorldState()
+        while len(ws.observations) == 0:
+            time.sleep(0.001)
+            ws = self.ah.getWorldState()
+        return json.loads(ws.observations[-1].text)
 
     def _wait_for_update(self):
         while True:
