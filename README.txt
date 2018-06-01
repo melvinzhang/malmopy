@@ -32,9 +32,11 @@ Session 3
     search and rescue mission
     tutorial_7
     implement left hand rule
-  Exploring a maze 2 (with memory)
     what are the limitations of left hand rule?
-    maze with cycles
+  Exploring an open area to collect diamonds
+    systematic exploration
+    open area with some obstacles inside
+    motivation: vacuum cleaner robot
 
 Session 4
    
