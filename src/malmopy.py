@@ -29,7 +29,7 @@ class Malmo():
         start_mission(self.ah, self.spec, self.record)
         wait_for_mission_start(self.ah)
 
-    def wait_for_mission_end(self):
+    def end_mission(self):
         wait_for_mission_end(self.ah)
 
     def send_command(self, command):

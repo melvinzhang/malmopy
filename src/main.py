@@ -17,6 +17,6 @@ if __name__ == "__main__":
     for i in range(10):
         malmo.move(1)
         print("move 1")
-    malmo.wait_for_mission_end()
+    malmo.end_mission()
     print("mission end")
 
