@@ -45,6 +45,10 @@ class Malmo():
         self.send_command("move " + str(n))
         self._wait_for_update()
 
+    def turn(self, n):
+        self.send_command("turn " + str(n))
+        self._wait_for_update()
+
     def observe(self):
         ws = self.ah.getWorldState()
         while len(ws.observations) == 0:
