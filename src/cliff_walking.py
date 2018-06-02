@@ -1,10 +1,4 @@
 import malmopy
-import time
-
-def setup_mission(spec):
-    with open('missions/cliff_walking_1.xml', 'r') as mfile:
-        spec = malmopython.MissionSpec(mfile.read(), True)
-    return spec
 
 malmo = malmopy.Malmo()
 malmo.set_delay(0.5)
@@ -13,8 +7,10 @@ malmo.start_mission()
 while malmo.is_running():
     obs = malmo.observe()
     floor = obs['floor']
-    print(obs)
+    print(floor)
     if 'lava' not in floor[(0,1)]:
+        print('move')
         malmo.move(1)
     else:
+        print('turn left')
         malmo.turn(-1)
