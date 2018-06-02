@@ -63,7 +63,7 @@ class Malmo():
         if not ws.is_mission_running:
             return None
         obs = json.loads(ws.observations[-1].text)
-        if 'floor' in obs and len(obs['floor']) == 9:
+        if 'floor' in obs and len(obs['floor']) == 9 and 'Yaw' in obs:
             obs['floor'] = relative_blocks(obs['floor'], obs['Yaw'])
         frame = ws.video_frames[-1]
         image = Image.frombytes('RGB', (frame.width, frame.height), bytes(frame.pixels) )
