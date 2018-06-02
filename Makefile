@@ -1,5 +1,5 @@
 main:
 	python3 src/$@.py
 
-mission:
+cliff_walking:
 	python3 src/$@.py
