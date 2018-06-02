@@ -81,3 +81,6 @@ https://blogs.msdn.microsoft.com/uk_faculty_connection/2017/05/23/azure-craft-a-
 1.30 - 2.15: Lab 3 - First steps in Malmo
 2.15 - 3.00: Lab 4 - Building and updating a Malmo map
 3.00 - 4.00: Lab 5 - Putting it all together, walking a Maze faster with rewards!
+
+NASA's lesson plan for teaching robotics
+https://www.nasa.gov/audience/foreducators/robotics/lessonplans/index.html
