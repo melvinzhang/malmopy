@@ -7,14 +7,14 @@ def setup_mission(spec):
     return spec
 
 malmo = malmopy.Malmo()
-malmo.set_delay(1)
+malmo.set_delay(0.5)
 malmo.setup_mission('missions/cliff_walking_1.xml')
 malmo.start_mission()
-for i in range(15):
+while malmo.is_running():
     obs = malmo.observe()
     floor = obs['floor']
-    print(i, obs)
+    print(obs)
     if 'lava' not in floor[(0,1)]:
         malmo.move(1)
     else:
-        malmo.turn(1)
+        malmo.turn(-1)
