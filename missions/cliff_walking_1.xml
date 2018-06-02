@@ -5,10 +5,6 @@
     <Summary>Cliff walking mission based on Sutton and Barto.</Summary>
   </About>
   
-  <ModSettings>
-    <MsPerTick>1</MsPerTick>
-  </ModSettings>
-
   <ServerSection>
       <ServerInitialConditions>
             <Time>
@@ -40,6 +36,7 @@
       <Placement x="4.5" y="46.0" z="1.5" pitch="30" yaw="0"/>
     </AgentStart>
     <AgentHandlers>
+      <ObservationFromFullStats/>
       <ObservationFromGrid>
           <Grid name="floor">
               <min x="-1" y="-1" z="-1"/>
