@@ -16,6 +16,10 @@ class Malmo():
         self.ah = create_agent_host()
         self.spec = MalmoPython.MissionSpec()
         self.record = MalmoPython.MissionRecordSpec()
+        self.delay = 0
+
+    def set_delay(self, n):
+        self.delay = n
 
     def setup_mission(self, fun):
         if isinstance(fun, str):
@@ -39,6 +43,7 @@ class Malmo():
 
     def send_command(self, command):
         self.ah.sendCommand(command)
+        time.sleep(self.delay)
 
     def move(self, n):
         self.send_command("move " + str(n))
