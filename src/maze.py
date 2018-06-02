@@ -10,8 +10,8 @@ while malmo.is_running():
         break
     floor = obs['floor']
     print(floor)
-    # left hand rule:
-    #   left side is empty, turn in
+    # left hand rule: always keep the wall on the left
+    # left side is empty, turn in
     if floor[(-1,0)] == 'air':
         malmo.turn(-1)
         malmo.move(1)
