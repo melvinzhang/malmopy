@@ -1,11 +1,13 @@
 AI concepts with Python and Malmo
 
+Target audience is 15 - 18 years old with basic python knowledge
+
+Duration: 5 sessions, each 2 hours
+
 Prior knowledge assumed: primitive data types, list, function, concept of
 object, loop, conditionals, string manipulation
 
 Should not require: OOP
-
-Duration: 5 sessions, each 2 hours
 
 Session 1
   Concept of an agent
