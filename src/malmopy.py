@@ -53,7 +53,10 @@ class Malmo():
         while len(ws.observations) == 0:
             time.sleep(0.001)
             ws = self.ah.getWorldState()
-        return json.loads(ws.observations[-1].text)
+        obs = json.loads(ws.observations[-1].text)
+        if 'floor' in obs and len(obs['floor']) == 9:
+            obs['floor'] = relative_blocks(obs['floor'], obs['Yaw'])
+        return obs
 
     def _wait_for_update(self):
         while True:
@@ -132,3 +135,37 @@ def wait_for_mission_end(agent_host):
         world_state = agent_host.getWorldState()
         for error in world_state.errors:
             print("Error:",error.text)
+
+def relative_blocks(blocks, y):
+    def rotate(l, n):
+        return l[n:]+ l[:n]
+
+    yaw = [0, 90, 180, 270]
+    front = [7, 3, 1, 5]
+    front_right = [6, 0, 2, 8]
+    pos = {
+        (0,0): [4, 4, 4, 4],
+        #front
+        (0,1): rotate(front, 0),
+        #right
+        (1,0): rotate(front, 1),
+        #back
+        (0,-1): rotate(front, 2),
+        #left
+        (-1,0): rotate(front, 3),
+        #front_right:
+        (1,1): rotate(front_right, 0),
+        #back_right:
+        (1,-1): rotate(front_right, 1),
+        #back_left:
+        (-1,-1): rotate(front_right, 2),
+        #front_left:
+        (-1,1): rotate(front_right, 3)
+    }
+
+    res = {}
+    idx = yaw.index(y)
+    for k,v in pos.items():
+        res[k] = blocks[v[idx]]
+
+    return res
