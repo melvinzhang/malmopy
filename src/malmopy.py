@@ -5,6 +5,7 @@ import os
 import sys
 import time
 import json
+from PIL import Image
 
 # set env var needed by native library
 os.environ["MALMO_XSD_PATH"] = os.getcwd() + "/schemas"
@@ -17,6 +18,7 @@ class Malmo():
         self.spec = MalmoPython.MissionSpec()
         self.record = MalmoPython.MissionRecordSpec()
         self.delay = 0
+        self.images = []
 
     def set_delay(self, n):
         self.delay = n
@@ -55,12 +57,17 @@ class Malmo():
 
     def observe(self):
         ws = self.ah.getWorldState()
-        while len(ws.observations) == 0:
+        while ws.is_mission_running and (len(ws.observations) == 0 or len(ws.video_frames) == 0):
             time.sleep(0.001)
             ws = self.ah.getWorldState()
+        if not ws.is_mission_running:
+            return None
         obs = json.loads(ws.observations[-1].text)
         if 'floor' in obs and len(obs['floor']) == 9:
             obs['floor'] = relative_blocks(obs['floor'], obs['Yaw'])
+        frame = ws.video_frames[-1]
+        image = Image.frombytes('RGB', (frame.width, frame.height), bytes(frame.pixels) )
+        self.images.append(image)
         return obs
 
     def is_running(self):
@@ -72,6 +79,9 @@ class Malmo():
             ws = self.ah.getWorldState()
             if ws.number_of_observations_since_last_state > 0 or not ws.is_mission_running:
                 break
+
+    def save_gif(self, path):
+        self.images[0].save(path, save_all=True, append_images=self.images[1:], duration=300)
 
 def init():
     if sys.version_info[0] == 2:

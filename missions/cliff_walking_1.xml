@@ -36,6 +36,7 @@
       <Placement x="4.5" y="46.0" z="1.5" pitch="30" yaw="0"/>
     </AgentStart>
     <AgentHandlers>
+      <VideoProducer><Width>860</Width><Height>480</Height></VideoProducer>
       <ObservationFromFullStats/>
       <ObservationFromGrid>
           <Grid name="floor">
