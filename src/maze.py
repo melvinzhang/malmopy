@@ -1,7 +1,7 @@
 import malmopy
 
 malmo = malmopy.Malmo()
-malmo.set_delay(0.1)
+malmo.set_delay(0.3)
 malmo.setup_mission('missions/maze_1.xml')
 malmo.start_mission()
 while malmo.is_running():

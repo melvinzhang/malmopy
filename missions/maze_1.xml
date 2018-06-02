@@ -29,7 +29,7 @@
                 <SubgoalBlock type="beacon"/>
                 <GapBlock type="stained_hardened_clay" colour="WHITE ORANGE MAGENTA LIGHT_BLUE YELLOW LIME PINK GRAY SILVER CYAN PURPLE BLUE BROWN GREEN RED BLACK" height="3"/>
             </MazeDecorator>
-            <ServerQuitFromTimeUp timeLimitMs="30000"/>
+            <ServerQuitFromTimeUp timeLimitMs="100000"/>
             <ServerQuitWhenAnyAgentFinishes />
         </ServerHandlers>
     </ServerSection>
