@@ -63,6 +63,9 @@ class Malmo():
             obs['floor'] = relative_blocks(obs['floor'], obs['Yaw'])
         return obs
 
+    def is_running(self):
+        return self.ah.peekWorldState().is_mission_running
+
     def _wait_for_update(self):
         while True:
             time.sleep(0.001)
