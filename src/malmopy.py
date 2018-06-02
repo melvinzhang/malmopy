@@ -14,8 +14,8 @@ class Malmo():
     def __init__(self):
         init()
         self.ah = create_agent_host()
-        self.spec = MissionSpec()
-        self.record = MissionRecordSpec()
+        self.spec = MalmoPython.MissionSpec()
+        self.record = MalmoPython.MissionRecordSpec()
 
     def setup_mission(self, fun):
         if isinstance(fun, str):
@@ -132,9 +132,3 @@ def wait_for_mission_end(agent_host):
         world_state = agent_host.getWorldState()
         for error in world_state.errors:
             print("Error:",error.text)
-
-def MissionSpec():
-    return MalmoPython.MissionSpec()
-
-def MissionRecordSpec():
-    return MalmoPython.MissionRecordSpec()
