@@ -86,3 +86,6 @@ https://blogs.msdn.microsoft.com/uk_faculty_connection/2017/05/23/azure-craft-a-
 
 NASA's lesson plan for teaching robotics
 https://www.nasa.gov/audience/foreducators/robotics/lessonplans/index.html
+
+Reeborg's world (web-based 2D robot simulator, allows both text and blocks)
+http://reeborg.ca
