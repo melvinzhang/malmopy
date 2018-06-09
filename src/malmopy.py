@@ -83,11 +83,19 @@ class Malmo():
     def save_gif(self, path):
         self.images[0].save(path, save_all=True, append_images=self.images[1:], duration=300)
 
+    # uses a callback act
     def start_agent(self, act):
         while self.is_running():
             obs = self.observe()
             if obs is not None:
                 act(obs)
+
+    # generator of observations
+    def observations(self):
+        while self.is_running():
+            obs = self.observe()
+            if obs is not None:
+                yield obs
 
 def init():
     if sys.version_info[0] == 2:

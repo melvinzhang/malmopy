@@ -5,7 +5,7 @@ malmo.set_delay(0.1)
 malmo.setup_mission('missions/cliff_walking_1.xml')
 malmo.start_mission()
 
-def act(obs):
+for obs in malmo.observations():
     floor = obs['floor']
     print(floor)
     if 'lava' not in floor[(0,1)]:
@@ -15,5 +15,4 @@ def act(obs):
         print('turn left')
         malmo.turn(-1)
 
-malmo.start_agent(act)
 malmo.save_gif('cliff.gif')
