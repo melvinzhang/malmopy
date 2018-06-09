@@ -83,6 +83,12 @@ class Malmo():
     def save_gif(self, path):
         self.images[0].save(path, save_all=True, append_images=self.images[1:], duration=300)
 
+    def start_agent(self, act):
+        while self.is_running():
+            obs = self.observe()
+            if obs is not None:
+                act(obs)
+
 def init():
     if sys.version_info[0] == 2:
         sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)  # flush print output immediately
