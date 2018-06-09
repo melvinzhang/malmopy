@@ -4,10 +4,8 @@ malmo = malmopy.Malmo()
 malmo.set_delay(0.3)
 malmo.setup_mission('missions/maze_1.xml')
 malmo.start_mission()
-while malmo.is_running():
-    obs = malmo.observe()
-    if obs is None:
-        break
+
+for obs in malmo.observations():
     floor = obs['floor']
     print(floor)
     # left hand rule: always keep the wall on the left
