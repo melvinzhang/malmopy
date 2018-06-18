@@ -58,8 +58,8 @@ class Malmo():
     def observe(self):
         ws = self.ah.getWorldState()
         while ws.is_mission_running and (len(ws.observations) == 0 or len(ws.video_frames) == 0):
-            time.sleep(0.001)
-            ws = self.ah.getWorldState()
+            time.sleep(0.1)
+            ws = self.ah.peekWorldState()
         if not ws.is_mission_running:
             return None
         obs = json.loads(ws.observations[-1].text)
