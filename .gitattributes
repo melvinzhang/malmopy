@@ -1,1 +1,2 @@
 lib/x86-64_linux/MalmoPython.so filter=lfs diff=lfs merge=lfs -text
+lib/x86-64_macos/MalmoPython.so filter=lfs diff=lfs merge=lfs -text
