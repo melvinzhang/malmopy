@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Melvin Zhang">
+  <title>Intro to AI with Project Malmo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
+  <link rel="stylesheet" href="custom.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Intro to AI with Project Malmo</h1>
+  <p class="author">Melvin Zhang</p>
+  <p class="date">24th June, 2018</p>
+</section>
+
+<section id="fictional-robots" class="slide level1">
+<h1>Fictional Robots</h1>
+<figure>
+<img src="r2d2.jpg" height="500" />
+</figure>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="david.jpg" height="500" />
+</figure>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="rosie.jpg" height="500" />
+</figure>
+</section>
+<section id="real-life-robots" class="slide level1">
+<h1>Real life Robots</h1>
+<figure>
+<img src="kofu.jpg" height="500" />
+</figure>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="cleaner.jpg" height="500" />
+</figure>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="agv.jpg" height="500" />
+</figure>
+</section>
+<section id="intelligent-agent" class="slide level1">
+<h1>Intelligent Agent</h1>
+<figure>
+<img src="control.jpg" height="500" />
+</figure>
+</section>
+<section id="project-malmo" class="slide level1">
+<h1>Project Malmo</h1>
+<figure>
+<img src="ProjectMalmo.jpg" alt="https://github.com/Microsoft/malmo" /><figcaption>https://github.com/Microsoft/malmo</figcaption>
+</figure>
+</section>
+<section id="missions" class="slide level1">
+<h1>Missions</h1>
+<figure>
+<img src="malmo.gif" />
+</figure>
+</section>
+<section id="activity-1-moving-around" class="slide level1">
+<h1>Activity 1: Moving around</h1>
+<p>Run <code>src/movement.py</code>. Edit it so that the agent moves to where the diamond is.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> MalmoPy
+
+malmo <span class="op">=</span> MalmoPy.Malmo()
+malmo.start_mission(<span class="st">&#39;missions/cliff_walking_1.xml&#39;</span>)
+<span class="co"># turn right</span>
+malmo.turn(<span class="dv">1</span>)
+<span class="co"># move forward</span>
+malmo.move(<span class="dv">1</span>)
+<span class="co"># turn left</span>
+malmo.turn(<span class="op">-</span><span class="dv">1</span>)</code></pre></div>
+</section>
+<section id="activity-2-reacting-to-the-world" class="slide level1">
+<h1>Activity 2: Reacting to the world</h1>
+<figure>
+<img src="control.jpg" height="500" />
+</figure>
+</section>
+<section class="slide level1">
+
+<p>Edit <code>src/reacting.py</code> and help the agent get to the diamond block.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> obs <span class="kw">in</span> malmo.observations():
+    floor <span class="op">=</span> obs[<span class="st">&#39;floor&#39;</span>]
+
+    <span class="co"># (0,1) means in front</span>
+    <span class="co"># (-1,0) is to the left</span>
+    <span class="co"># (1,0) is to the right</span>
+
+    <span class="co"># front is a string description of the block</span>
+    front <span class="op">=</span> floor[(<span class="dv">0</span>,<span class="dv">1</span>)]
+
+    <span class="co"># implement the following logic:</span>
+    <span class="co"># if not lava in front</span>
+    <span class="co">#   move forward</span>
+    <span class="co"># else</span>
+    <span class="co">#   turn left</span></code></pre></div>
+</section>
+<section id="activity-3-navigating-the-world" class="slide level1">
+<h1>Activity 3: Navigating the world</h1>
+<figure>
+<embed src="patrol.webp" height="500" />
+</figure>
+</section>
+<section class="slide level1">
+
+<p>Edit <code>src/patrol.py</code> and help the agent patrol the platform.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> obs <span class="kw">in</span> malmo.observations():
+    floor <span class="op">=</span> obs[<span class="st">&#39;floor&#39;</span>]
+
+    <span class="co"># (0,1) means in front</span>
+    <span class="co"># (-1,0) is to the left</span>
+    <span class="co"># (1,0) is to the right</span>
+
+    <span class="co"># front is a string description of the block</span>
+    front <span class="op">=</span> floor[(<span class="dv">0</span>,<span class="dv">1</span>)]
+
+    <span class="co"># implement the following logic:</span>
+    <span class="co">#   patrol the platform in a clockwise direction by</span>
+    <span class="co">#   keeping the lava to your left</span></code></pre></div>
+</section>
+<section id="a-collaborative-mission" class="slide level1">
+<h1>A collaborative mission</h1>
+<figure>
+<img src="collab-task.png" />
+</figure>
+</section>
+<section id="an-open-problem" class="slide level1">
+<h1>An open problem</h1>
+<figure>
+<img src="survive.png" />
+</figure>
+<p>Create an agent that learns how to survive in the game and eventually reach a diamond block.</p>
+</section>
+<section id="recap" class="slide level1">
+<h1>Recap</h1>
+<figure>
+<img src="control.jpg" height="500" />
+</figure>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+              { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
