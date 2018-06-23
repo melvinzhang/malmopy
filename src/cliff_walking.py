@@ -1,7 +1,6 @@
 import malmopy
 
 malmo = malmopy.Malmo()
-malmo.set_delay(0.1)
 malmo.setup_mission('missions/cliff_walking_1.xml')
 malmo.start_mission()
 
