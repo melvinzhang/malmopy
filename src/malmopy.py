@@ -36,7 +36,9 @@ class Malmo():
         #    cmds = list(spec.getAllowedCommands(0, ch))
         #    print(ch, cmds)
 
-    def start_mission(self):
+    def start_mission(self, fun=None):
+        if fun is not None:
+            self.setup_mission(fun)
         start_mission(self.ah, self.spec, self.record)
         wait_for_mission_start(self.ah)
 

@@ -1,8 +1,7 @@
 import malmopy
 
 malmo = malmopy.Malmo()
-malmo.setup_mission('missions/cliff_walking_1.xml')
-malmo.start_mission()
+malmo.start_mission('missions/cliff_walking_1.xml')
 
 for obs in malmo.observations():
     floor = obs['floor']
@@ -13,5 +12,3 @@ for obs in malmo.observations():
     else:
         print('turn left')
         malmo.turn(-1)
-
-malmo.save_gif('cliff.gif')

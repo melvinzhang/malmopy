@@ -1,8 +1,7 @@
 import malmopy
 
 malmo = malmopy.Malmo()
-malmo.setup_mission('missions/maze_1.xml')
-malmo.start_mission()
+malmo.start_mission('missions/maze_1.xml')
 
 for obs in malmo.observations():
     floor = obs['floor']
@@ -18,4 +17,3 @@ for obs in malmo.observations():
     # left is blocked, front is blocked
     else:
         malmo.turn(1)
-
