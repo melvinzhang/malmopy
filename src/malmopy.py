@@ -17,7 +17,7 @@ class Malmo():
         self.ah = create_agent_host()
         self.spec = MalmoPython.MissionSpec()
         self.record = MalmoPython.MissionRecordSpec()
-        self.delay = 0.33
+        self.delay = 0.5
         self.images = []
 
     def set_delay(self, n):
