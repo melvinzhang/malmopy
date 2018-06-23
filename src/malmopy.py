@@ -66,7 +66,7 @@ class Malmo():
             return None
         obs = json.loads(ws.observations[-1].text)
         if 'floor' in obs and len(obs['floor']) == 9 and 'Yaw' in obs:
-            obs['floor'] = relative_blocks(obs['floor'], obs['Yaw'])
+            obs['floor'] = canonicalize_lava(relative_blocks(obs['floor'], obs['Yaw']))
         frame = ws.video_frames[-1]
         image = Image.frombytes('RGB', (frame.width, frame.height), bytes(frame.pixels) )
         self.images.append(image)
@@ -203,3 +203,9 @@ def relative_blocks(blocks, y):
         res[k] = blocks[v[idx]]
 
     return res
+
+def canonicalize_lava(d):
+    for k,v in d.items():
+        if v == 'flowing_lava':
+            d[k] = 'lava'
+    return d
