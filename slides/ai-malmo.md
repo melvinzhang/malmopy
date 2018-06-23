@@ -1,6 +1,6 @@
 ---
 author: Melvin Zhang
-title: Intro to AI with Project\ Malmo 
+title: Intro to AI with Project\ Malmo
 date: 24th June, 2018
 ---
 
@@ -10,7 +10,7 @@ date: 24th June, 2018
 
 ---
 
-![](data.jpg){height=500px}
+![](david.jpg){height=500px}
 
 ---
 
@@ -31,29 +31,26 @@ date: 24th June, 2018
 ![](agv.jpg){height=500px}
 
 
-# Intelligent Agent 
+# Intelligent Agent
 
-![](AI-agent-and-environment.jpg){height=500px}
+![](control.jpg){height=500px}
 
 # Project Malmo
 
 ![https://github.com/Microsoft/malmo](ProjectMalmo.jpg)
 
-# Sample mission
+# Missions
 
 ![](malmo.gif)
 
-# Collaborative agent
+# Activity 1: Moving around
 
-![](collab-task.png)
-
-# Activity 1: Using MalmoPy
-
+Run `src/movement.py`. Edit it so that the agent moves to where the diamond is.
 ```python
 import MalmoPy
 
 malmo = MalmoPy.Malmo()
-malmo.start_mission('mission1.xml')
+malmo.start_mission('missions/cliff_walking_1.xml')
 # turn right
 malmo.turn(1)
 # move forward
@@ -65,11 +62,64 @@ malmo.turn(-1)
 # Activity 2: Reacting to the world
 
 
+![](control.jpg){height=500px}
+
+---
+
+Edit `src/reacting.py` and help the agent get to the diamond block.
+
 ```python
 for obs in malmo.observations():
-    print(obs)
-    malmo.move(1)
+    floor = obs['floor']
+
+    # (0,1) means in front
+    # (-1,0) is to the left
+    # (1,0) is to the right
+
+    # front is a string description of the block
+    front = floor[(0,1)]
+
+    # implement the following logic:
+    # if not lava in front
+    #   move forward
+    # else
+    #   turn left
 ```
 
-
 # Activity 3: Navigating the world
+
+![](patrol.webp){height=500px}
+
+---
+
+Edit `src/patrol.py` and help the agent patrol the platform.
+
+```python
+for obs in malmo.observations():
+    floor = obs['floor']
+
+    # (0,1) means in front
+    # (-1,0) is to the left
+    # (1,0) is to the right
+
+    # front is a string description of the block
+    front = floor[(0,1)]
+
+    # implement the following logic:
+    #   patrol the platform in a clockwise direction by
+    #   keeping the lava to your left
+```
+
+# A collaborative mission
+
+![](collab-task.png)
+
+# An open problem
+
+![](survive.png)
+
+Create an agent that learns how to survive in the game and eventually reach a diamond block.
+
+# Recap
+
+![](control.jpg){height=500px}

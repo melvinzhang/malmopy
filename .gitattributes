@@ -1,2 +1,16 @@
 lib/x86-64_linux/MalmoPython.so filter=lfs diff=lfs merge=lfs -text
 lib/x86-64_macos/MalmoPython.so filter=lfs diff=lfs merge=lfs -text
+slides/kofu.jpg filter=lfs diff=lfs merge=lfs -text
+slides/ProjectMalmo.jpg filter=lfs diff=lfs merge=lfs -text
+slides/r2d2.jpg filter=lfs diff=lfs merge=lfs -text
+slides/rosie.jpg filter=lfs diff=lfs merge=lfs -text
+slides/agv.jpg filter=lfs diff=lfs merge=lfs -text
+slides/AI-agent-and-environment.jpg filter=lfs diff=lfs merge=lfs -text
+slides/cleaner.jpg filter=lfs diff=lfs merge=lfs -text
+slides/david.jpg filter=lfs diff=lfs merge=lfs -text
+slides/control.jpg filter=lfs diff=lfs merge=lfs -text
+slides/data.jpg filter=lfs diff=lfs merge=lfs -text
+slides/waiter.jpg filter=lfs diff=lfs merge=lfs -text
+slides/collab-task.png filter=lfs diff=lfs merge=lfs -text
+slides/survive.png filter=lfs diff=lfs merge=lfs -text
+slides/patrol.webp filter=lfs diff=lfs merge=lfs -text
