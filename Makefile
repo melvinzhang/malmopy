@@ -25,5 +25,6 @@ ai-python-workshop.zip:
 	  src/patrol.py \
 	  ai-python-workshop/src
 	cp -r schemas missions slides ai-python-workshop
-	zip $@ -r ai-python-workshop
-	rm -rvf ai-python-workshop
+	cp lccl-workshop/malmo .
+	zip $@ -r ai-python-workshop malmo
+	rm -rvf ai-python-workshop malmo
