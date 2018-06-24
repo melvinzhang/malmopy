@@ -15,7 +15,7 @@ setup-macos:
 	rm src/MalmoPython.so
 	ln -s ../lib/x86-64_macos/MalmoPython.so src/MalmoPython.so
 
-ai-python-workop.zip:
+ai-python-workshop.zip:
 	mkdir -p ai-python-workshop/src
 	cp \
 	  lib/x86-64_macos/MalmoPython.so \
