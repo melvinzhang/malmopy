@@ -10,5 +10,9 @@ malmo.start_mission('missions/cliff_walking_1.xml')
 malmo.turn(1)
 # move forward
 malmo.move(1)
+# move forward
+malmo.move(1)
+# move forward
+malmo.move(1)
 # turn left
 malmo.turn(-1)
