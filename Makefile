@@ -14,3 +14,16 @@ setup-linux:
 setup-macos:
 	rm src/MalmoPython.so
 	ln -s ../lib/x86-64_macos/MalmoPython.so src/MalmoPython.so
+
+ai-python-workop.zip:
+	mkdir -p ai-python-workshop/src
+	cp \
+	  lib/x86-64_macos/MalmoPython.so \
+	  src/movement.py \
+	  src/reacting.py \
+	  src/patrol.py \
+	  ai-python-workshop/src
+	cp -r schemas ai-python-workshop
+	cp -r missions ai-python-workshop
+	zip $@ -r ai-python-workshop
+	rm -rvf ai-python-workshop
