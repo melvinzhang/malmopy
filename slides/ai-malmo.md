@@ -88,7 +88,7 @@ for obs in malmo.observations():
 
 # Activity 3: Navigating the world
 
-![](patrol.webp){height=500px}
+![](patrol.png){height=500px}
 
 ---
 

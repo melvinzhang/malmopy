@@ -13,6 +13,6 @@ slides/data.jpg filter=lfs diff=lfs merge=lfs -text
 slides/waiter.jpg filter=lfs diff=lfs merge=lfs -text
 slides/collab-task.png filter=lfs diff=lfs merge=lfs -text
 slides/survive.png filter=lfs diff=lfs merge=lfs -text
-slides/patrol.webp filter=lfs diff=lfs merge=lfs -text
 slides/malmo.gif filter=lfs diff=lfs merge=lfs -text
 slides/reveal.js.zip filter=lfs diff=lfs merge=lfs -text
+slides/patrol.png filter=lfs diff=lfs merge=lfs -text
