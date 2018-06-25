@@ -7,12 +7,12 @@ malmo.start_mission('missions/cliff_walking_1.xml')
 # Edit it so that the agent moves to where the diamond is.  
 
 # turn right
-malmo.turn(1)
+malmo.turn_right()
 # move forward
-malmo.move(1)
+malmo.move()
 # move forward
-malmo.move(1)
+malmo.move()
 # move forward
-malmo.move(1)
+malmo.move()
 # turn left
-malmo.turn(-1)
+malmo.turn_left()

@@ -11,4 +11,4 @@ for obs in malmo.observations():
         malmo.move(1)
     else:
         print('turn left')
-        malmo.turn(-1)
+        malmo.turn_left()
