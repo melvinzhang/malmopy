@@ -30,6 +30,9 @@ class Malmo():
         else:
             fun(self.spec)
 
+        # always run mission in third person view
+        self.spec.setViewpoint(1)
+
         #print(spec.getAsXML(True))
         #chs = list(spec.getListOfCommandHandlers(0))
         #for ch in chs:
