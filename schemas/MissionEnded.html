@@ -429,9 +429,9 @@ div#legend div.hint {
     <script type="text/javascript">
 <!--
 /* IDs of XML Instance Representation boxes */
-var xiBoxes = new Array('element_MissionEnded_xibox', 'type_MissionResult_xibox', 'element_Reward_xibox');
+var xiBoxes = new Array('element_MissionEnded_xibox', 'type_MissionResult_xibox', 'element_MissionDiagnostics_xibox', 'element_Reward_xibox');
 /* IDs of Schema Component Representation boxes */
-var scBoxes = new Array('schema_scbox', 'element_MissionEnded_scbox', 'type_MissionResult_scbox', 'element_Reward_scbox');
+var scBoxes = new Array('schema_scbox', 'element_MissionEnded_scbox', 'type_MissionResult_scbox', 'element_MissionDiagnostics_scbox', 'element_Reward_scbox');
 
 /**
  * Can get the ID of the button controlling
@@ -1109,7 +1109,7 @@ var creole = new Parse.Simple.Creole( {
       <h3><span id="docPopupTitleDesc">Desc</span>: <span class="name" id="docPopupTitleName">Name</span></h3>
       <span id="docPopupText">Popup text</span>
     </div>
-    <div class="annotation documentation hidden" id="hdoc_idp13399488">
+    <div class="annotation documentation hidden" id="hdoc_idm36">
       Stores multi-dimensional rewards as a map of int:double where dimension is a positive integer.
     </div>
     <h1>
@@ -1157,6 +1157,9 @@ if (gc != null) {
         <a href="#SchemaDeclarations">Global Declarations</a>
         <ul>
           <li>
+            <a href="#element_MissionDiagnostics">Element: <strong>MissionDiagnostics</strong></a>
+          </li>
+          <li>
             <a href="#element_MissionEnded">Element: <strong>MissionEnded</strong></a>
           </li>
           <li>
@@ -1201,7 +1204,7 @@ if (gc != null) {
       </tr>
       <tr>
         <th>Version</th>
-        <td>0.30</td>
+        <td>0.35</td>
       </tr>
       <tr>
         <th>Element and Attribute Namespaces</th>
@@ -1252,7 +1255,7 @@ if (gc != null) {
     <div class="schemaComponent box">
       <div><input type="button" id="schema_scbox_button" class="control" onclick="switchState('schema_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span></div>
       <div id="schema_scbox" class="contents">
-        <div style="margin-left: 0em">&lt;<span class="scTag">xs:schema</span> <span class="scTag">targetNamespace</span>="<span class="scContent">http://ProjectMalmo.microsoft.com</span>" <span class="scTag">elementFormDefault</span>="<span class="scContent">qualified</span>" <span class="scTag">version</span>="<span class="scContent">0.30</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:include</span> <span class="scTag">schemaLocation</span>="<span class="scContent">MissionHandlers.xsd</span>"/&gt;</div><div class="scContent" style="margin-left: 1.5em">...</div>&lt;/<span class="scTag">xs:schema</span>&gt;</div>
+        <div style="margin-left: 0em">&lt;<span class="scTag">xs:schema</span> <span class="scTag">targetNamespace</span>="<span class="scContent">http://ProjectMalmo.microsoft.com</span>" <span class="scTag">elementFormDefault</span>="<span class="scContent">qualified</span>" <span class="scTag">version</span>="<span class="scContent">0.35</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:include</span> <span class="scTag">schemaLocation</span>="<span class="scContent">MissionHandlers.xsd</span>"/&gt;</div><div class="scContent" style="margin-left: 1.5em">...</div>&lt;/<span class="scTag">xs:schema</span>&gt;</div>
       </div>
       <script type="text/javascript">
 <!--
@@ -1267,6 +1270,55 @@ setState('schema_scbox', false);
     <h2>
       <a name="SchemaDeclarations" id="SchemaDeclarations">Global Declarations</a>
     </h2>
+    <h3>Element: <a name="element_MissionDiagnostics" class="name" id="element_MissionDiagnostics">MissionDiagnostics</a></h3>
+    <table class="properties">
+      <tr>
+        <th>Name</th>
+        <td>MissionDiagnostics</td>
+      </tr>
+      <tr>
+        <th>Type</th>
+        <td>Locally-defined complex type</td>
+      </tr>
+      <tr>
+        <th>
+          <a title="Look up 'Nillable' in glossary" href="#term_Nillable">Nillable</a>
+        </th>
+        <td>no</td>
+      </tr>
+      <tr>
+        <th>
+          <a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+        </th>
+        <td>no</td>
+      </tr>
+    </table>
+    <div class="sample box">
+      <div><input type="button" id="element_MissionDiagnostics_xibox_button" class="control" onclick="switchState('element_MissionDiagnostics_xibox'); return false;" style="display: none" /> <span class="caption">XML Instance Representation</span></div>
+      <div id="element_MissionDiagnostics_xibox" class="contents">
+        <div style="margin-left: 0em">&lt;MissionDiagnostics&gt; <br /><div style="margin-left: 1.5em">&lt;VideoData<br /><span style="margin-left: 0.5em"> frameType="<span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span> <span class="occurs">[1]</span>"</span><br /><span style="margin-left: 0.5em"> framesSent="<span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:int</span> <span class="occurs">[1]</span>"</span><br /><span style="margin-left: 0.5em"> averageFpsSent="<span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:decimal</span> <span class="occurs">[1]</span>"</span><br /><span style="margin-left: 0.5em"> framesReceived="<span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:int</span> <span class="occurs">[0..1]</span>"</span><br /><span style="margin-left: 0.5em"> framesWritten="<span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:int</span> <span class="occurs">[0..1]</span>"</span>/&gt;  <span class="occurs">[0..*]</span></div>&lt;/MissionDiagnostics&gt;</div>
+      </div>
+      <script type="text/javascript">
+<!--
+setState('element_MissionDiagnostics_xibox', true);
+// -->
+</script>
+    </div>
+    <div class="schemaComponent box">
+      <div><input type="button" id="element_MissionDiagnostics_scbox_button" class="control" onclick="switchState('element_MissionDiagnostics_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span></div>
+      <div id="element_MissionDiagnostics_scbox" class="contents">
+        <div style="margin-left: 0em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">MissionDiagnostics</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:complexType</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">VideoData</span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>" <span class="scTag">maxOccurs</span>="<span class="scContent">unbounded</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:complexType</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:attribute</span> <span class="scTag">name</span>="<span class="scContent">frameType</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:attribute</span> <span class="scTag">name</span>="<span class="scContent">framesSent</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:int</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:attribute</span> <span class="scTag">name</span>="<span class="scContent">averageFpsSent</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:decimal</span></span>" <span class="scTag">use</span>="<span class="scContent">required</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:attribute</span> <span class="scTag">name</span>="<span class="scContent">framesReceived</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:int</span></span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:attribute</span> <span class="scTag">name</span>="<span class="scContent">framesWritten</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:int</span></span>"/&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div>&lt;/<span class="scTag">xs:element</span>&gt;</div>&lt;/<span class="scTag">xs:sequence</span>&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div>&lt;/<span class="scTag">xs:element</span>&gt;</div>
+      </div>
+      <script type="text/javascript">
+<!--
+setState('element_MissionDiagnostics_scbox', false);
+// -->
+</script>
+    </div>
+    <div style="text-align: right; clear: both;">
+      <a href="#top">top</a>
+    </div>
+    <hr />
     <h3>Element: <a name="element_MissionEnded" class="name" id="element_MissionEnded">MissionEnded</a></h3>
     <table class="properties">
       <tr>
@@ -1293,7 +1345,7 @@ setState('schema_scbox', false);
     <div class="sample box">
       <div><input type="button" id="element_MissionEnded_xibox_button" class="control" onclick="switchState('element_MissionEnded_xibox'); return false;" style="display: none" /> <span class="caption">XML Instance Representation</span></div>
       <div id="element_MissionEnded_xibox" class="contents">
-        <div style="margin-left: 0em">&lt;MissionEnded<br /><span style="margin-left: 0.5em"> SchemaVersion="<span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:token</span> <span class="occurs">[0..1]</span>"</span>&gt; <br /><div style="margin-left: 1.5em">&lt;Status&gt; <span class="type"><a title="Jump to &quot;MissionResult&quot; type definition." href="#type_MissionResult">MissionResult</a></span> &lt;/Status&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em">&lt;HumanReadableStatus&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span> &lt;/HumanReadableStatus&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em">&lt;<a title="Jump to &quot;Reward&quot; element declaration." href="#element_Reward">Reward</a>&gt; ... &lt;/<a title="Jump to &quot;Reward&quot; element declaration." href="#element_Reward">Reward</a>&gt; <span class="occurs">[0..1]</span></div>&lt;/MissionEnded&gt;</div>
+        <div style="margin-left: 0em">&lt;MissionEnded<br /><span style="margin-left: 0.5em"> SchemaVersion="<span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:token</span> <span class="occurs">[0..1]</span>"</span>&gt; <br /><div style="margin-left: 1.5em">&lt;Status&gt; <span class="type"><a title="Jump to &quot;MissionResult&quot; type definition." href="#type_MissionResult">MissionResult</a></span> &lt;/Status&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em">&lt;HumanReadableStatus&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span> &lt;/HumanReadableStatus&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em">&lt;<a title="Jump to &quot;Reward&quot; element declaration." href="#element_Reward">Reward</a>&gt; ... &lt;/<a title="Jump to &quot;Reward&quot; element declaration." href="#element_Reward">Reward</a>&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em">&lt;<a title="Jump to &quot;MissionDiagnostics&quot; element declaration." href="#element_MissionDiagnostics">MissionDiagnostics</a>&gt; ... &lt;/<a title="Jump to &quot;MissionDiagnostics&quot; element declaration." href="#element_MissionDiagnostics">MissionDiagnostics</a>&gt; <span class="occurs">[1]</span></div>&lt;/MissionEnded&gt;</div>
       </div>
       <script type="text/javascript">
 <!--
@@ -1304,7 +1356,7 @@ setState('element_MissionEnded_xibox', true);
     <div class="schemaComponent box">
       <div><input type="button" id="element_MissionEnded_scbox_button" class="control" onclick="switchState('element_MissionEnded_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span></div>
       <div id="element_MissionEnded_scbox" class="contents">
-        <div style="margin-left: 0em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">MissionEnded</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:complexType</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">Status</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="Jump to &quot;MissionResult&quot; type definition." href="#type_MissionResult">MissionResult</a></span></span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">HumanReadableStatus</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span></span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">ref</span>="<span class="scContent"><a title="Jump to &quot;Reward&quot; element declaration." href="#element_Reward">Reward</a></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>" <span class="scTag">maxOccurs</span>="<span class="scContent">1</span>"/&gt;</div>&lt;/<span class="scTag">xs:sequence</span>&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:attribute</span> <span class="scTag">name</span>="<span class="scContent">SchemaVersion</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:token</span></span>"/&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div>&lt;/<span class="scTag">xs:element</span>&gt;</div>
+        <div style="margin-left: 0em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">MissionEnded</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:complexType</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">Status</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="Jump to &quot;MissionResult&quot; type definition." href="#type_MissionResult">MissionResult</a></span></span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">HumanReadableStatus</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span></span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">ref</span>="<span class="scContent"><a title="Jump to &quot;Reward&quot; element declaration." href="#element_Reward">Reward</a></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>" <span class="scTag">maxOccurs</span>="<span class="scContent">1</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">ref</span>="<span class="scContent"><a title="Jump to &quot;MissionDiagnostics&quot; element declaration." href="#element_MissionDiagnostics">MissionDiagnostics</a></span>" <span class="scTag">maxOccurs</span>="<span class="scContent">1</span>"/&gt;</div>&lt;/<span class="scTag">xs:sequence</span>&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:attribute</span> <span class="scTag">name</span>="<span class="scContent">SchemaVersion</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:token</span></span>"/&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div>&lt;/<span class="scTag">xs:element</span>&gt;</div>
       </div>
       <script type="text/javascript">
 <!--
@@ -1339,10 +1391,10 @@ setState('element_MissionEnded_scbox', false);
         <td>no</td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idp13399488">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm36">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idp13399488");
-               var hblock = document.getElementById("hdoc_idp13399488");
+               var block = document.getElementById("wdoc_idm36");
+               var hblock = document.getElementById("hdoc_idm36");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
