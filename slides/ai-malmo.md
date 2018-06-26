@@ -80,7 +80,7 @@ for obs in malmo.observations():
     front = floor[(0,1)]
 
     # implement the following logic:
-    # if not lava in front
+    # if front is safe, i.e. not lava
     #   move forward
     # else
     #   turn left
