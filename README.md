@@ -6,6 +6,8 @@ The C++ API is directly exposed using Boost.Python.
 
 This library aims to provide a more Pythonic API by providing a higher level abstraction around common tasks.
 
+![](http://melvinzh.sdf.org/cliff.gif)
+
 ## Installation
 
 Copy src/malmopy.py and put it together with MalmoPython.so.
