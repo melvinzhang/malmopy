@@ -6,7 +6,7 @@ The C++ API is directly exposed using Boost.Python.
 
 This library aims to provide a more Pythonic API by providing a higher level abstraction around common tasks.
 
-![](http://melvinzh.sdf.org/cliff.gif)
+![](http://melvinzh.sdf.org/cliff-loop.gif)
 
 ## Installation
 
