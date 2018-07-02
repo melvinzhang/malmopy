@@ -1,6 +1,6 @@
 # malmopy: a Python library for working with Project Malmo
 
-Project Malmo comes with MalmoPython, which is a Python wrapper around a C++ library.
+[Project Malmo](https://github.com/Microsoft/malmo) comes with MalmoPython, which is a Python wrapper around a C++ library.
 
 The C++ API is directly exposed using Boost.Python.
 
