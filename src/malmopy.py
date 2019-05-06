@@ -5,7 +5,7 @@ import os
 import sys
 import time
 import json
-from PIL import Image
+#from PIL import Image
 
 # set env var needed by native library
 os.environ["MALMO_XSD_PATH"] = os.getcwd() + "/schemas"
@@ -77,8 +77,8 @@ class Malmo():
         if 'floor' in obs and len(obs['floor']) == 9 and 'Yaw' in obs:
             obs['floor'] = canonicalize_lava(relative_blocks(obs['floor'], obs['Yaw']))
         frame = ws.video_frames[-1]
-        image = Image.frombytes('RGB', (frame.width, frame.height), bytes(frame.pixels) )
-        self.images.append(image)
+        #image = Image.frombytes('RGB', (frame.width, frame.height), bytes(frame.pixels) )
+        #self.images.append(image)
         return obs
 
     def is_running(self):
